@@ -181,7 +181,7 @@ export class JavaJarService extends SubprocessService {
     version: string = beamVersion
   ): string {
     if (version.startsWith("0.")) {
-      // node-ts 0.x corresponds to Beam 2.x.
+      // typescript 0.x corresponds to Beam 2.x.
       version = "2" + version.substring(1);
     }
     const gradlePackage = gradleTarget.match(/^:?(.*):[^:]+:?$/)![1];

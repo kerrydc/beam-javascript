@@ -1,10 +1,12 @@
-# Node Beam SDK
+# Typescript Beam SDK
 
-This is the start of a fully functioning Javascript (actually, Typescript) SDK.
-There are two distinct aims with this SDK
+***EXPERIMENTAL, NOT FOR PRODUCTION USE***
+
+This is the start of a fully functioning Typescript SDK.
+There are two distinct aims with this SDK:
 
 1. Tap into the large (and relatively underserved, by existing data processing
-frameworks) community of javascript developers with a native SDK targeting this language.
+frameworks) community of typescript developers with a native SDK targeting this language.
 
 1. Develop a new SDK which can serve both as a proof of concept and reference
 that highlights the (relative) ease of porting Beam to new languages,
@@ -56,7 +58,7 @@ which finishes only when the pipeline is completely finished as well as
 
 * Rather than introduce PCollectionTuple, PCollectionList, etc. we let PValue
 literally be an
-[array or object with PValue values](https://github.com/robertwb/beam-javascript/blob/de4390dd767f046903ac23fead5db333290462db/sdks/node-ts/src/apache_beam/pvalue.ts#L116)
+[array or object with PValue values](https://github.com/robertwb/beam-javascript/blob/de4390dd767f046903ac23fead5db333290462db/sdks/typescript/src/apache_beam/pvalue.ts#L116)
 which transforms can consume or produce.
 These are applied by wrapping them with the `P` operator, e.g.
 `P([pc1, pc2, pc3]).apply(new Flatten())`.
@@ -83,7 +85,7 @@ We currently offer asynchronous variants of `PValue.apply(...)` (in addition
 to the synchronous ones, as they are easier to chain) as well as making
 `Runner.run` asynchronous. TBD to do this for all user callbacks as well.
 
-An example pipeline can be found at https://github.com/robertwb/beam-javascript/blob/javascript/sdks/node-ts/src/apache_beam/examples/wordcount.ts
+An example pipeline can be found at https://github.com/robertwb/beam-javascript/blob/javascript/sdks/typescript/src/apache_beam/examples/wordcount.ts
 
 ## TODO
 
@@ -95,7 +97,7 @@ on a portable runner) but the following big-ticket items remain.
 
   * Function and object serialization: we currently only support "loopback"
   mode; to be able to run on a remote, distributed manner we need to finish up
-  the work in picking closures and DoFn objects. Some investigation has been
+  the work in serializing closures and DoFn objects. Some investigation has been
   started here, but all existing libraries have non-trivial drawbacks.
 
   * Finish the work in building a full SDK container image that starts
@@ -168,7 +170,7 @@ hackathon) which needs to be done before putting it into the man repository.
 
 ### Getting stared
 
-Install node.js, and then from within `sdks/node-ts`.
+Install node.js, and then from within `sdks/typescript`.
 
 ```
 npm install

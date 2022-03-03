@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-// From sdks/node-ts
+// From sdks/typescript
 //     npx tsc && npm run worker
 // From sdks/python
 //     python trivial_pipeline.py --environment_type=EXTERNAL --environment_config='localhost:5555' --runner=PortableRunner --job_endpoint=embed
